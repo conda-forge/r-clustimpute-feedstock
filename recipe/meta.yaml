@@ -1,4 +1,4 @@
-{% set version = "0.1.7" %}
+{% set version = "0.2.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ClustImpute_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ClustImpute/ClustImpute_{{ version }}.tar.gz
-  sha256: fab821705c9b9e3143b81260648331a2ca8144595940c3b8d0029f943be0a18b
+  sha256: 2bcc1cb87a1d48928a6d9802b111f9158b0b947179048d4769e4039e73dd2d8a
 
 build:
   merge_build_host: true  # [win]
@@ -29,14 +29,20 @@ requirements:
     - r-copula
     - r-dplyr
     - r-magrittr
+    - r-tidyr
+    - r-ggplot2
     - r-rlang
+    - r-knitr
   run:
     - r-base
     - r-clusterr
     - r-copula
     - r-dplyr
     - r-magrittr
+    - r-tidyr
+    - r-ggplot2
     - r-rlang
+    - r-knitr
 
 test:
   commands:
@@ -46,7 +52,7 @@ test:
 about:
   home: https://CRAN.R-project.org/package=ClustImpute
   license: GPL-3.0-only
-  summary: This clustering algorithm deals with missing data via weights that are imposed on missings and successively increased. See the vignette for details.
+  summary: This k-means algorithm is able to cluster data with missing values and as a by-product completes the data set. The implementation can deal with missing values in multiple variables and is computationally efficient since it iteratively uses the current cluster assignment to define a plausible distribution for missing value imputation. Weights are used to shrink early random draws for missing values (i.e., draws based on the cluster assignments after few iterations) towards the global mean of each feature. This shrinkage slowly fades out after a fixed number of iterations to reflect the increasing credibility of cluster assignments. See the vignette for details.
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
@@ -59,19 +65,19 @@ extra:
 # Package: ClustImpute
 # Type: Package
 # Title: K-means clustering with build-in missing data imputation
-# Version: 0.1.5
+# Version: {{ version }}
 # Author: Oliver Pfaffel
 # Maintainer: Oliver Pfaffel <opfaffel@gmail.com>
-# Description: This clustering algorithm deals with missing data via weights that are imposed on missings and successively increased. See the vignette for details.
+# Description: This k-means algorithm is able to cluster data with missing values and as a by-product completes the data set. The implementation can deal with missing values in multiple variables and is computationally efficient since it iteratively uses the current cluster assignment to define a plausible distribution for missing value imputation. Weights are used to shrink early random draws for missing values (i.e., draws based on the cluster assignments after few iterations) towards the global mean of each feature. This shrinkage slowly fades out after a fixed number of iterations to reflect the increasing credibility of cluster assignments. See the vignette for details.
 # License: GPL-3
 # Encoding: UTF-8
 # LazyData: true
-# Imports: ClusterR, copula, dplyr, magrittr, rlang
-# Suggests: psych, ggplot2, knitr, rmarkdown, testthat (>= 2.1.0), tidyr, Hmisc, tictoc, spelling, corrplot, covr
+# Imports: ClusterR, copula, dplyr, magrittr, tidyr, ggplot2, rlang, knitr
+# Suggests: ggExtra, rmarkdown, testthat (>= 2.1.0), Hmisc, tictoc, spelling, corrplot, covr
 # VignetteBuilder: knitr
 # RoxygenNote: 7.1.0
 # Language: en-US
 # NeedsCompilation: no
-# Packaged: 2020-07-26 10:00:39 UTC; opfaf
+# Packaged: 2021-03-20; opfaf
 # Repository: CRAN
-# Date/Publication: 2020-07-26 10:22:07 UTC
+# Date/Publication: 2021-03-20
