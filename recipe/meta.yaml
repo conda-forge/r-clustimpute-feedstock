@@ -1,4 +1,4 @@
-{% set version = "0.1.7" %}
+{% set version = "0.2.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ClustImpute_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ClustImpute/ClustImpute_{{ version }}.tar.gz
-  sha256: fab821705c9b9e3143b81260648331a2ca8144595940c3b8d0029f943be0a18b
+  sha256: 2bcc1cb87a1d48928a6d9802b111f9158b0b947179048d4769e4039e73dd2d8a
 
 build:
   merge_build_host: true  # [win]
