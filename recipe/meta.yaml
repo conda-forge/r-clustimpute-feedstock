@@ -1,4 +1,4 @@
-{% set version = "0.2.0" %}
+{% set version = "0.2.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ClustImpute_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ClustImpute/ClustImpute_{{ version }}.tar.gz
-  sha256: 2bcc1cb87a1d48928a6d9802b111f9158b0b947179048d4769e4039e73dd2d8a
+  sha256: 892c87c41ccf6c16d8f71b9e775a23d98f3459e7daf877b9c811c1aaacfe476b
 
 build:
   merge_build_host: true  # [win]
@@ -52,7 +52,9 @@ test:
 about:
   home: https://CRAN.R-project.org/package=ClustImpute
   license: GPL-3.0-only
-  summary: This k-means algorithm is able to cluster data with missing values and as a by-product completes the data set. The implementation can deal with missing values in multiple variables and is computationally efficient since it iteratively uses the current cluster assignment to define a plausible distribution for missing value imputation. Weights are used to shrink early random draws for missing values (i.e., draws based on the cluster assignments after few iterations) towards the global mean of each feature. This shrinkage slowly fades out after a fixed number of iterations to reflect the increasing credibility of cluster assignments. See the vignette for details.
+  summary: This k-means algorithm is able to cluster data with missing values and as a by-product completes the data set. The implementation can deal with missing values in multiple variables and is computationally efficient since it iteratively uses the current cluster assignment to define a plausible distribution for missing
+    value imputation. Weights are used to shrink early random draws for missing values (i.e., draws based on the cluster assignments after few iterations) towards the global mean of each feature. This shrinkage slowly fades out after a fixed number of iterations to reflect the increasing credibility of cluster assignments.
+    See the vignette for details.
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
