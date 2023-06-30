@@ -1,11 +1,11 @@
-About r-clustimpute
-===================
+About r-clustimpute-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-clustimpute-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=ClustImpute
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-clustimpute-feedstock/blob/main/LICENSE.txt)
 
 Summary: This k-means algorithm is able to cluster data with missing values and as a by-product completes the data set. The implementation can deal with missing values in multiple variables and is computationally efficient since it iteratively uses the current cluster assignment to define a plausible distribution for missing value imputation. Weights are used to shrink early random draws for missing values (i.e., draws based on the cluster assignments after few iterations) towards the global mean of each feature. This shrinkage slowly fades out after a fixed number of iterations to reflect the increasing credibility of cluster assignments. See the vignette for details.
 
